@@ -1,5 +1,6 @@
+import './SeasonDisplay.css';
 import React from 'react';
-
+ 
 // const seasonConfig = {
 //     summer : {
 //         text: "Let's hit the beach",
@@ -22,19 +23,17 @@ const getSeason = (lat,month)=> {
 
 const SeasonDisplay = (props) => {
     const season = getSeason(props.lat, new Date().getMonth());
-//    const {text, iconName} = seasonConfig[season];
-
-    const text = season === 'winter' ? 'Brr, it is chilly' : 'Lets hit the beach';
-    const iconName = season === 'winter' ? 'snowflake' : 'summer';
+    const text = season === 'winter' ? 'Brr, it is chilly' : "Let's hit the beach";//ternary operator - sets a var of text and evaluates if season is winter then set atext else btext
+    const iconName = season === 'winter' ? 'snowflake' : 'sun';
 
 console.log('iconName: ' + iconName);
 
     return (
-<div>
-            <i className = "massive {iconName} icon" />
-            <h1>{text}</h1>
-            <i className = "massive snowflake icon" />
-        </div>
+    <div className={"season-display " + season}>
+        <i className = {"icon-left massive " + iconName + " icon"} />
+        <h1>{text}</h1>
+        <i className = {"icon-right massive " + iconName + " icon"} />
+    </div>
 )
 };
 

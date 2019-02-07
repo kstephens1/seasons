@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay'; //importing a component
+import Spinner from './Spinner';
 
 class App extends React.Component{
     constructor(props){//the cons great place to init state
@@ -29,10 +30,9 @@ componentDidUpdate(){
             return <SeasonDisplay lat={this.state.lat}/> //passing the lat prop into our custom component
         }
 
-        return <div>Loading</div>
+        return <Spinner message="Please accept location request"/>;
     }
 }
-
 
 ReactDOM.render(
     <App />,document.querySelector('#root')
